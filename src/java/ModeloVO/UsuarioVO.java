@@ -13,6 +13,7 @@ package ModeloVO;
 public class UsuarioVO {
     private String IdUsuario,NombreUsuario,ClaveUsuario,IdCargoFK,rol;
 
+    
     public UsuarioVO(String NombreUsuario) {
         this.NombreUsuario = NombreUsuario;
     }

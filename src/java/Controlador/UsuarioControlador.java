@@ -99,10 +99,10 @@ public class UsuarioControlador extends HttpServlet {
                     }
                     miSesion.setAttribute("rol",listaRoles);   
                     
-                    if(usuVO.getIdCargoFK().equals("Administrador")){
+                    if(usuVO.getRol().equals("Administrador")){
                     request.getRequestDispatcher("Administrador.jsp").forward(request, response);
                     }
-                    else if(usuVO.getIdCargoFK().equals("Empleado")){
+                    else if(usuVO.getRol().equals("Empleado")){
                     request.getRequestDispatcher("Empleado.jsp").forward(request, response);
                     }
                     else{

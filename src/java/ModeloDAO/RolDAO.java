@@ -28,9 +28,8 @@ public class RolDAO extends Conexion{
         ArrayList<UsuarioVO> listaRoles= new ArrayList<>();
         try{
         conexion=this.obtenerConexion();
-        sql="SELECT Usuario.IdCargoFK,TipoUsuario.IdCargo,TipoUsuario.TipoCargo FROM" +
-        "TipoUsuario,Usuario  where TipoUsuario.IdCargo = Usuario.IdCargoFK" +
-        "and usuario.NombreUsuario =?;";
+        sql="SELECT Usuario.IdCargoFK,TipoUsuario.TipoCargo "
+        + "FROM TipoUsuario,Usuario  where TipoUsuario.IdCargo=Usuario.IdCargoFK and usuario.NombreUsuario=?;";
         puente = conexion.prepareStatement(sql);   
         puente.setString(1,usuario);
         mensajero=puente.executeQuery();
