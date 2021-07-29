@@ -95,6 +95,7 @@ public class UsuarioControlador extends HttpServlet {
                     
                     for(int i=0;i<listaRoles.size();i++){
                     usuVO=listaRoles.get(i);
+                    IdCargoFK = usuVO.getIdCargoFK();
                     }
                     miSesion.setAttribute("rol",listaRoles);   
                     

@@ -11,25 +11,31 @@ package ModeloVO;
  * IdCargoFK
  */
 public class UsuarioVO {
-    private String IdUsuario,NombreUsuario,ClaveUsuario,IdCargoFK;
+    private String IdUsuario,NombreUsuario,ClaveUsuario,IdCargoFK,rol;
 
-    public UsuarioVO(String NombreUsuario, String ClaveUsuario) {
+    public UsuarioVO(String NombreUsuario) {
         this.NombreUsuario = NombreUsuario;
-        this.ClaveUsuario = ClaveUsuario;
     }
-    
-    
+
+    public UsuarioVO(String IdCargoFK, String rol) {
+        this.IdCargoFK = IdCargoFK;
+        this.rol = rol;
+    }
     
     //Constructor 
     public UsuarioVO() {
     }
     //constructor lleno
+
     public UsuarioVO(String IdUsuario, String NombreUsuario, String ClaveUsuario, String IdCargoFK) {
         this.IdUsuario = IdUsuario;
         this.NombreUsuario = NombreUsuario;
         this.ClaveUsuario = ClaveUsuario;
         this.IdCargoFK = IdCargoFK;
     }
+
+    
+    
     //getter and setter
 
     public String getIdUsuario() {
@@ -64,5 +70,13 @@ public class UsuarioVO {
         this.IdCargoFK = IdCargoFK;
     }
     
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
     
 }
