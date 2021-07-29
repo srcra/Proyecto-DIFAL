@@ -12,7 +12,7 @@ response.setHeader("Pragma", "No-cache");
 response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
 response.setDateHeader("Expires",0);
 %>
-
+  
 <%
    HttpSession buscarSesion =(HttpSession)request.getSession();
    String usuario ="";
