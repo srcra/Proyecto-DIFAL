@@ -63,7 +63,9 @@ public class DatosPersonalesDAO extends Conexion implements Crud {
         try {
             
             //Crear la sentencia
-            sql = "insert into datospersonales values (?, ?, ?, ?, ?, ?, ?, ?)";
+            sql = "INSERT INTO datospersonales (IdDatos, NombreDatos,ApellidoDatos,"
+            + " DireccionDatos,TelefonoDatos,CorreoDatos,EstadoDatos,IdUsuarioFK)"
+            + " VALUES (?,?,?,?,?,?,?,?);";
              //Crear el puente para esa conexion establecida
             puente = conexion.prepareStatement(sql);
             puente.setString(1, IdDatos);

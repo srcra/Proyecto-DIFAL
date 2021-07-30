@@ -13,6 +13,9 @@ public class DatosPersonalesVO {
     
      private String IdDatos,NombreDatos,ApellidoDatos,DireccionDatos,TelefonoDatos,CorreoDatos,EstadoDatos,IdUsuarioFK;
 
+      public DatosPersonalesVO() {
+    }
+      
     public DatosPersonalesVO(String IdDatos, String NombreDatos, String ApellidoDatos, String DireccionDatos, String TelefonoDatos, String CorreoDatos, String EstadoDatos, String IdUsuarioFK) {
         this.IdDatos = IdDatos;
         this.NombreDatos = NombreDatos;
@@ -24,9 +27,6 @@ public class DatosPersonalesVO {
         this.IdUsuarioFK = IdUsuarioFK;
     }
 
-     
-    public DatosPersonalesVO() {
-    }
 
     public String getIdDatos() {
         return IdDatos;

@@ -5,8 +5,8 @@
  */
 package Controlador;
 
-import ModeloDAO.DatosPersonalesDAO;
-import ModeloVO.DatosPersonalesVO;
+import ModeloDAO.OrdenDAO;
+import ModeloVO.OrdenVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author sergio saenz
  */
-@WebServlet(name = "DatosPersonales", urlPatterns = {"/DatosPersonales"})
-public class DatosPersonales extends HttpServlet {
+@WebServlet(name = "Orden", urlPatterns = {"/Orden"})
+public class Orden extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,23 +35,22 @@ public class DatosPersonales extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-       //1. Recibir datos de las Vistas
+        //1. Recibir datos de las Vistas
+
         int opcion = Integer.parseInt(request.getParameter("opcion"));
-        String dat = request.getParameter("textNumeroid");
-        String nombre = request.getParameter("textNombre");
-        String apellido = request.getParameter("textApellido");
-        String direccion = request.getParameter("textDireccion");
-        String telefono = request.getParameter("textTelefono");
-        String correo = request.getParameter("textCorreo");        
-        String estado = request.getParameter("textEstado");
-        String idusuario = request.getParameter("textUsuario");
+        String IdOrden = request.getParameter("textOrden");
+        String FechaOrden = request.getParameter("textFecha");
+        String cantidadPrenda = request.getParameter("textCantidad");
+        String EstadoOrden = request.getParameter("textEstado");
+        String IdDatosFK = request.getParameter("textIdDato");
+        String IdPrendaFK = request.getParameter("textPrenda");        
+      
+        OrdenVO OrdeVO = new OrdenVO(IdOrden,FechaOrden,cantidadPrenda,EstadoOrden,IdDatosFK,IdPrendaFK);
+        OrdenDAO OrdeDAO = new OrdenDAO(OrdeVO);
         
-        DatosPersonalesVO datVO = new DatosPersonalesVO(dat,nombre,apellido,direccion,telefono,correo,estado,idusuario);
-        DatosPersonalesDAO datDAO = new DatosPersonalesDAO(datVO);
-          
-        switch (opcion) {
+         switch (opcion) {
             case 1:
-                if (datDAO.aregarRegistro()) {
+                if (OrdeDAO.aregarRegistro()) {
                     request.setAttribute("MensajeExito", "La informacion se registró correctamente");
 
                 } else {
@@ -59,12 +58,12 @@ public class DatosPersonales extends HttpServlet {
                     request.setAttribute("MensajeError", "La infromacion no se registró correctamente");
 
                 }
-                request.getRequestDispatcher("registrarDatosPersonales.jsp").forward(request, response);
+                request.getRequestDispatcher("registrarOrden.jsp").forward(request, response);
                 break;
                 
             case 2: // Actualizar Registro
 
-                if (datDAO.actualizarRegistro()) {
+                if (OrdeDAO.actualizarRegistro()) {
                     request.setAttribute("MensajeExito", "La informacion se actualizó correctamente");
 
                 } else {
@@ -72,26 +71,27 @@ public class DatosPersonales extends HttpServlet {
                     request.setAttribute("MensajeError", "La infromacion no se actualizó correctamente");
 
                 }
-                request.getRequestDispatcher("actualizarDatosPersonales.jsp").forward(request, response);
+                request.getRequestDispatcher("actualizarOrden.jsp").forward(request, response);
                 break;
                 
                 
             case 3: //Consultar
                 
-                datVO = datDAO.consultarDatos(dat);
-                if (datVO != null) {
+                OrdeVO = OrdeDAO.consultarDatos(IdOrden);
+                if (OrdeVO != null) {
                     
-                    request.setAttribute("identificacion consultada",datVO);
-                    request.getRequestDispatcher("actualizarDatosPersonales.jsp").forward(request, response);
+                    request.setAttribute("identificacion consultada",OrdeVO);
+                    request.getRequestDispatcher("actualizarOrden.jsp").forward(request, response);
                 
                 }else{
                     request.setAttribute("MensajeError", "La identificacion no existe");
-                    request.getRequestDispatcher("consultarDatosPersonales.jsp").forward(request, response);
+                    request.getRequestDispatcher("consultarOrden.jsp").forward(request, response);
                 }
                 break;
                 
         }
-
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
