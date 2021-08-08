@@ -13,10 +13,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="Imagenes/difal.jpg">	
         <link href="Estilos/Estlos.css" rel="stylesheet" type="text/css"/>
+        <!--fuentes y js-->
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+        
     </head>
+    
     <body class="cuerpoL">
           <div class="container">
 		<div class="img">
