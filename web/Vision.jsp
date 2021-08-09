@@ -39,17 +39,13 @@
             <li class="nav-item">
                 <a 
                   class="nav-link" href="Index.jsp">
-                  <i 
-                    class="fas fa-bars">
-                  </i>Inicio
+                  <i class="fas fa-home"></i>Inicio
                 </a>
             </li>
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a 
                   class="nav-link" href="Mision.jsp">
-                  <i 
-                    class="far fa-address-book">
-                  </i>Mision
+                  <i class="fas fa-bullseye"></i>Misión
                 </a>
             </li>
             <li class="nav-item active">

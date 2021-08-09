@@ -16,8 +16,8 @@
         <!--fuentes y js-->
         <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-        
+	
+        <link rel="icon" type="image/png" href="Imagenes/difal.jpg">	
     </head>
     
     <body class="cuerpoL">
@@ -39,7 +39,7 @@
            		   </div>
            		</div>
            		<div class="input-div pass">
-           		   <div class="i"> 
+                            <div class="i"> 
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
@@ -50,17 +50,17 @@
             	<input type="submit" class="btn" value="Ingresar">
 				<a href="#">Olvido su clave?</a>
 				<a href="#">Registrame</a>
-        </div>
-    </div>
-           <div style="color:white;font-size:20px;">
-          
+            <p style=" color white;font-size:15px;">
             <%
-                if (request.getAttribute("MensajeError") != null) { %>
+            if (request.getAttribute("MensajeError") != null) { 
+            %>
             ${MensajeError}     
             <%} else {%>
-            <div style="color:blue;font-size:20px;">${MensajeExito}</div>
-            <%  }%>
+            <div style="color: greenyellow">${MensajeExito}</div>
+            <%  }%>     
+        </p>
         </div>
+    </div>
             <input type="hidden" value="3" name="opcion">
         </form>
         <script src="JS/login.js" type="text/javascript"></script>

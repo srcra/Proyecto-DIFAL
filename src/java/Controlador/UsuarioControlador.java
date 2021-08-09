@@ -110,8 +110,7 @@ public class UsuarioControlador extends HttpServlet {
                     }
                               
                 }else{
-                    
-                    request.setAttribute("MensajeError", "El usuario y/o la contraseña son incorrectos");
+                    request.setAttribute("MensajeError","El usuario y/o la contraseña son incorrectos");
                     request.getRequestDispatcher("Login.jsp").forward(request, response);
                 }
                 break;
